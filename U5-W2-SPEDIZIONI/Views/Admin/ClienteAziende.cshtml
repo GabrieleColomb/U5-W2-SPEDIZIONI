@@ -1,0 +1,59 @@
+﻿@using U5_W2_SPEDIZIONI.Models
+@model List<ClienteAzienda>
+
+@{
+    ViewBag.Title = "ClienteAziende";
+}
+
+<h2>ClienteAziende</h2>
+
+<p>
+    @Html.ActionLink("Crea una nuova azienda cliente", "CreaClienteAziende")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            IdClienteAzienda
+        </th>
+        <th>
+            NomeAzienda
+        </th>
+        <th>
+            PartitaIVA
+        </th>
+        <th>
+            IndirizzoSede
+        </th>
+        <th>
+            CittaSede
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (ClienteAzienda item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdClienteAzienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeAzienda)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartitaIVA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IndirizzoSede)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CittaSede)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,64 @@
+﻿@using U5_W2_SPEDIZIONI.Models
+@model List<ClientePrivato>
+
+@{
+    ViewBag.Title = "ClientePrivato";
+}
+
+<h2>ClientePrivato</h2>
+
+<p>
+    @Html.ActionLink("Crea un nuovo cliente privato", "CreaClientePrivati")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Cognome
+        </th>
+        <th>
+            CodiceFiscale
+        </th>
+        <th>
+            LuogoDiNascita
+        </th>
+        <th>
+            Residenza
+        </th>
+        <th>
+            DataDiNascita
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (ClientePrivato item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cognome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CodiceFiscale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LuogoNascita)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Residenza)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataNascita)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdClientePrivato }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdClientePrivato }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.IdClientePrivato })
+        </td>
+    </tr>
+}
+
+</table>
